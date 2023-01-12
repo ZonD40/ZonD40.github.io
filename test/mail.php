@@ -30,7 +30,7 @@ try {
 	// Настройки вашей почты
 	$mail->Host       = 'smtp.gmail.com'; // SMTP сервера вашей почты
 	$mail->Username   = 'vip.leontev2002@gmail.com'; // Логин на почте
-	$mail->Password   = 'znyaoeakassbrhyg'; // Пароль на почте
+	$mail->Password   = 'znya oeak assb rhyg'; // Пароль на почте
 	$mail->SMTPSecure = 'ssl';
 	$mail->Port       = 465;
   
