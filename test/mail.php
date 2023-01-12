@@ -28,16 +28,16 @@ try {
 	$mail->SMTPAuth   = true;
   
 	// Настройки вашей почты
-	$mail->Host       = 'smtp.mail.ru'; // SMTP сервера вашей почты
-	$mail->Username   = 'vip.leontev2002@mail.ru'; // Логин на почте
-	$mail->Password   = 'axwbnP7q6izTmuz4uB1c'; // Пароль на почте
+	$mail->Host       = 'smtp.gmail.com'; // SMTP сервера вашей почты
+	$mail->Username   = 'vip.leontev2002@gmail.com'; // Логин на почте
+	$mail->Password   = 'znyaoeakassbrhyg'; // Пароль на почте
 	$mail->SMTPSecure = 'ssl';
 	$mail->Port       = 465;
   
-	$mail->setFrom('vip.leontev2002@mail.ru', 'Заявка с вашего сайта'); // Адрес самой почты и имя отправителя
+	$mail->setFrom('vip.leontev2002@gmail.com', 'Заявка с вашего сайта'); // Адрес самой почты и имя отправителя
   
 	// Получатель письма
-	$mail->addAddress('vip.leontev2002@mail.ru');
+	$mail->addAddress('vip.leontev2002@gmail.com');
   
   
 	// Отправка сообщения
