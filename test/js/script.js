@@ -70,15 +70,16 @@ window.onload = () => {
 					if (xhr.readyState === 4) {
 						if (xhr.status === 200) {
 							console.log('Отправлено');
-						}
-					}
+						} else { console.log('Status' + xhr.status); }
+					} else { console.log('State' + xhr.readyState); }
+					
 				}
 
 				xhr.open('POST', 'mail.php', true);
 				xhr.send(formData);
+				
 
 				form.reset();
-				console.log(formData);
 			}
 		});
 	}
