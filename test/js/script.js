@@ -23,7 +23,10 @@ window.onload = () => {
 		  formEmail = document.getElementById('email'),
 		  formPolicy = document.getElementById('policy'),
 		  formLine = document.querySelector('.error__line'),
-		  formBtn = document.querySelector('.contacts__triggers .btn');
+		  formBtn = document.querySelector('.contacts__triggers .btn'),
+		  formBanner = document.querySelector('.contacts__form-submit'),
+		  formWrapper = document.querySelector('.contacts__form__wrapper'),
+		  form = document.getElementById('form');
 
 	const inputValidate = function(input, placeholderText = '', emailText = '') {
 		const inputDefault = (e, input, text) => {
@@ -49,7 +52,7 @@ window.onload = () => {
 			} else 
 			if (emailText && !(input.value.match(validRegex))) {
 				inputDefault(e, input, emailText);
-				const label =document.querySelector('.contacts__error-label');
+				const label = document.querySelector('.contacts__error-label');
 				label.classList.add('contacts__error-label_active');
 				label.addEventListener('animationend', () => {
 					label.classList.remove('contacts__error-label_active');
@@ -61,7 +64,20 @@ window.onload = () => {
 				formLine.addEventListener('animationend', () => {
 					formLine.classList.remove('error__line_active');
 				})
-			} 
+			} else 
+			if (formName.value && formEmail.value && formPolicy.checked) {
+				setTimeout(() => {
+					form.reset();
+					formBanner.classList.add('contacts__form-submit_active');
+					formWrapper.classList.add('contacts__form__wrapper_dark');
+					formBanner.addEventListener('animationend', () => {
+						formBanner.classList.remove('contacts__form-submit_active');
+					})
+					formWrapper.addEventListener('animationend', () => {
+						formWrapper.classList.remove('contacts__form__wrapper_dark');
+					})
+				}, 10)
+			}
 		});
 	}
 
