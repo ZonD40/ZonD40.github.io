@@ -1,7 +1,8 @@
+
+
 const closeElem = function(elem, elemToClose, removeClass) {
 	elem.addEventListener('click', (target) => {
 		elemToClose.forEach((e, i) => {
-			console.log(target);
 			e.classList.remove(removeClass[i])
 		});
 	});
@@ -57,6 +58,7 @@ function postData(form) {
 		request.open('POST', 'server.php');
 		request.send(formData);
 		request.addEventListener('load', () => {
+			console.log(request.response);
 			if (request.status === 200) {
 				console.log(request.response);
 				form.reset();
@@ -67,3 +69,13 @@ function postData(form) {
 }
 
 postData(form);
+
+
+const swiper = new Swiper('.swiper', {
+	loop: true,
+
+	navigation: {
+		nextEl: '.swiper-button-next',
+		prevEl: '.swiper-button-prev',
+	  },
+  });
