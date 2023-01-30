@@ -71,11 +71,80 @@ function postData(form) {
 postData(form);
 
 
-const swiper = new Swiper('.swiper', {
+
+const swiper = new Swiper('.mySwiper', {
 	loop: true,
 
+	pagination: {
+		el: '.swiper-pagination',
+		type: 'bullets',
+	  },
+
+	  
 	navigation: {
-		nextEl: '.swiper-button-next',
-		prevEl: '.swiper-button-prev',
+		nextEl: '.reviews__swiper-button-next',
+		prevEl: '.reviews__swiper-button-prev',
 	  },
   });
+
+
+const swiper2 = new Swiper('.mySwiper2', {
+	centeredSlides: true,
+	
+	
+	breakpoints: {
+		200: {
+			slidesPerView: 1,
+			spaceBetween: 10,
+			pagination: {
+				enabled: true,
+				el: '.swiper-pagination',
+				type: 'bullets',
+			  },
+		},
+		576: {
+			pagination: {
+			  enabled: false
+			},
+		},
+		768: {
+		  slidesPerView: 2,
+		  spaceBetween: 30,
+		},
+	},
+	navigation: {
+		nextEl: '.photos__swiper-button-next',
+		prevEl: '.photos__swiper-button-prev',
+	  },
+});
+
+
+const contactsForm = document.querySelector('.contacts__form'),
+	  contactsButton = document.querySelector('.contacts__form-button'),
+	  contactsEmail = document.querySelector('.contacts__form-input-email'),
+	  contactsName = document.querySelector('.contacts__form-input-name');
+
+contactsButton.addEventListener('click', (e) => {
+	const validRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	if (!(contactsEmail.value.match(validRegex))) {
+		e.preventDefault();
+		contactsEmail.classList.add('contacts__form-input_error');
+	} 
+	if (contactsName.value === '') {
+		e.preventDefault();
+		contactsName.classList.add('contacts__form-input_error');
+	}
+	if (contactsName.value != '' && contactsEmail.value.match(validRegex)) {
+		e.preventDefault();
+		contactsForm.reset();
+	}
+});
+
+function clearErrorClass(input) {
+	input.addEventListener('input', () => {
+		input.classList.remove('contacts__form-input_error');
+	});
+};
+
+clearErrorClass(contactsEmail);
+clearErrorClass(contactsName);
