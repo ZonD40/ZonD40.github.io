@@ -19,14 +19,27 @@ button.addEventListener('click', ()  => {
 		return;
 	}
 
-	for (let i = k1; i <= k2; i++) {
-		const li = document.createElement('li');
-		if (isPrime(i, Math.sqrt(k2)))	{
-			li.textContent = i;
-			ul.append(li);
+	// for (let i = k1; i <= k2; i++) {
+	// 	const li = document.createElement('li');
+	// 	if (isPrime(i, Math.sqrt(k2)))	{
+	// 		li.textContent = i;
+	// 		ul.append(li);
+	// 	}
+	// 	console.log(i);
+	// }
+	let k3;
+	const li = document.createElement('li');
+	while (true) {
+		console.log(k1);
+		k3 = k2 % k1;
+		if (k3 == 0) {
+			li.textContent = k1;
+			break;
 		}
-		console.log(i);
+		k2 = k1;
+		k1 = k3;
 	}
+	ul.append(li);
 	ul.append('Леонтьев А.В. ПМИ-20');
 });
 
